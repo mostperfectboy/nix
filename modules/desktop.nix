@@ -48,6 +48,7 @@
           "temperature"
           "battery"
           "clock"
+          "tray"
         ];
         "hyprland/window" = {
           max-length = 200;
