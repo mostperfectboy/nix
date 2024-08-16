@@ -1,4 +1,15 @@
-{ ... }: {
+{ pkgs, ... }: 
+let
+
+  mediaplayer-script = pkgs.writeTextFile {
+    name = "mediaplayer.sh";
+    text = builtins.readFile ./waybar/mediaplayer.sh;
+    executable = true;
+  };
+in
+{
+  home.packages = with pkgs; [ playerctl ];
+
   programs.waybar = {
     enable = true;
     settings = {
@@ -7,7 +18,7 @@
         position = "top";
         height = 30;
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "mpd" ];
+        modules-center = [ "custom/media" ];
         modules-right = [
           "temperature"
           "battery"
@@ -17,6 +28,17 @@
         "hyprland/window" = {
           max-length = 200;
           separate-outputs = true;
+        };
+        "custom/media" = {
+          format = "{icon} {}";
+          return-type = "json";
+          max-length = 60;
+          format-icons = {
+            "spotify"= "";
+            "default"= "🎜";
+          };
+          escape = true;
+          exec = "${mediaplayer-script} 2> /dev/null";
         };
       };
     };
