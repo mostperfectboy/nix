@@ -10,6 +10,12 @@
         enable = true;
       };
       enableCompletion = true;
+      shellAliases = {
+        la = "ls -hal";
+        ".." = "cd ..";
+        "..." = "cd ..";
+        "dcud" = "docker compose up -d";
+      };
     };
 
     oh-my-posh = {
