@@ -1,4 +1,5 @@
-{ pkgs, ... } : {
+{ pkgs, ... }:
+{
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -70,6 +71,7 @@
     3000
     3030
   ];
+  # networking.interfaces.eth0.wakeOnLan.enable = true;
   # networking.firewall.allowedUDPPorts = [  3030 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
