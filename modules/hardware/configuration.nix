@@ -56,6 +56,21 @@
       ]
     ];
   };
+
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
+
   boot.extraModprobeConfig = "options thinkpad_acpi fan_control=1";
 
   programs.light.enable = true;
