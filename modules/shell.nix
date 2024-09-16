@@ -7,7 +7,6 @@
     git
     nixd
     nh
-    mise
     gitui
     zellij
     nixfmt-rfc-style
@@ -17,11 +16,6 @@
     enable = true;
     userName = "Niko";
     userEmail = "git@undefine.dev";
-  };
-
-  programs.mise = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
