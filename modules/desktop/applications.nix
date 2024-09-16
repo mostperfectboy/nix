@@ -8,4 +8,5 @@
       obs-studio-plugins.input-overlay
     ];
   };
+  home.packages = with pkgs; [ spotify ];
 }
