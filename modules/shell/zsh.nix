@@ -15,6 +15,7 @@
         ".." = "cd ..";
         "..." = "cd ..";
         "dcud" = "docker compose up -d";
+        "dc" = "docker compose";
       };
     };
 
