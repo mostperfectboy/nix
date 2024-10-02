@@ -58,13 +58,6 @@
 
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "frappe";
-      accent = "maroon";
-      size = "standard";
-      tweaks = [ "normal" ];
-    };
   };
 
   services.kanshi = {
