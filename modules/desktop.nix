@@ -62,18 +62,22 @@
 
   services.kanshi = {
     enable = true;
-    profiles = {
-      default = {
-        outputs = [
+    settings = [
+      { 
+        output.criteria = "eDP-1";
+        output.scale = 1.5;
+      }
+      { 
+        profile.name = "default";
+        profile.outputs = [
           {
             criteria = "eDP-1";
-            mode = "1920x1200";
-            scale = 1.5;
           }
         ];
-      };
-      office = {
-        outputs = [
+      }
+      { 
+        profile.name = "office";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             mode = "1920x1200";
@@ -90,11 +94,11 @@
             mode = "1920x1080";
             position = "1920,0";
           }
-
         ];
-      };
-      home = {
-        outputs = [
+      }
+      {
+        profile.name = "home";
+        profile.outputs = [
           {
             criteria = "DP-8";
             mode = "2560x1440";
@@ -114,8 +118,8 @@
             transform = "90";
           }
         ];
-      };
-    };
+      }
+    ];
   };
   services.mako = {
     enable = true;
