@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./shell/zsh.nix ];
 
@@ -17,6 +17,4 @@
     userName = "Niko";
     userEmail = "git@undefine.dev";
   };
-
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }

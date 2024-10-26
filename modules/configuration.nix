@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, inputs,  ... }:
 
 {
   imports = [
@@ -79,6 +79,8 @@
   users.users.niko = {
     shell = pkgs.zsh;
   };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
