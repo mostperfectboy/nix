@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs,  ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -60,11 +60,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    vscode
     firefox-devedition
-    docker-credential-helpers
-    slack
-    teams-for-linux
   ];
 
   programs.zsh = {

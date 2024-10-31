@@ -45,5 +45,8 @@
       enableZshIntegration = true;
     };
   };
-  home.packages = with pkgs; [ zsh-fzf-tab ];
+  home.packages = with pkgs; [
+    zsh-fzf-tab
+    docker-credential-helpers
+  ];
 }
