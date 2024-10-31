@@ -12,13 +12,13 @@
       type = "git";
       submodules = true;
     };
-    catppuccin.url = "github:catppuccin/nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
     {
       home-manager,
-      catppuccin,
+      nixos-hardware,
       nixpkgs,
       ...
     }@inputs:
@@ -32,8 +32,8 @@
           inherit inputs;
         };
         modules = [
-          catppuccin.nixosModules.catppuccin
           # home-manager.nixosModules.home-manager
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
           ./modules/configuration.nix
           # {
           #   home-manager.users.${username} = {
