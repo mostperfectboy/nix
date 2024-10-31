@@ -39,12 +39,6 @@
         ];
       };
     };
-    hyprpaper = {
-      enable = true;
-      settings = {
-        preload = "~/Wallpapers/frappe_poly_mountain.jpg";
-        wallpaper = [ ",~/Wallpapers/frappe_poly_mountain.jpg" ];
-      };
-    };
+    
   };
 }

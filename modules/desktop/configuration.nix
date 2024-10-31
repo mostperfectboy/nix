@@ -31,12 +31,6 @@
     manrope
   ];
 
-  fonts.fontconfig.defaultFonts = {
-    "sansSerif" = [ "GeistMono NF" ];
-    "serif" = [ "GeistMono NF" ];
-    "monospace" = [ "GeistMono NF" ];
-  };
-
   security.polkit.enable = true;
 
   services.xserver.xkb = {

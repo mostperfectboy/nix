@@ -10,6 +10,7 @@
     ./hardware/generated-configuration.nix
     ./hardware/configuration.nix
     ./desktop/configuration.nix
+    ./stylix.nix
   ];
 
   # Select internationalisation properties.
@@ -25,12 +26,6 @@
     LC_PAPER = "de_DE.UTF-8";
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
-  };
-
-  catppuccin = {
-    enable = true;
-    flavor = "frappe";
-    accent = "maroon";
   };
 
   security.pam.services.login.enableGnomeKeyring = true;

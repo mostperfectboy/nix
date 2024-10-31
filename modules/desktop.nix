@@ -4,6 +4,7 @@
     ./desktop/hyprland.nix
     ./desktop/applications.nix
     ./desktop/waybar.nix
+    ./stylix.nix
   ];
   home = {
     packages = with pkgs; [
@@ -36,28 +37,10 @@
     package = pkgs.rofi-wayland;
   };
 
-  
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    name = "catppuccin-frappe-maroon-cursors";
-    package = pkgs.catppuccin-cursors.frappeMaroon;
-  };
-
-  qt = {
+  stylix = {
     enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-    style.catppuccin = {
-      enable = true;
-      flavor = "frappe";
-      accent = "maroon";
-      apply = true;
-    };
-  };
-
-  gtk = {
-    enable = true;
+    image = ./mountain.jpg;
+    autoEnable = true;
   };
 
   services.kanshi = {

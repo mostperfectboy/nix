@@ -12,6 +12,7 @@
       type = "git";
       submodules = true;
     };
+    stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -20,6 +21,7 @@
       home-manager,
       nixos-hardware,
       nixpkgs,
+      stylix,
       ...
     }@inputs:
     let
@@ -32,6 +34,7 @@
           inherit inputs;
         };
         modules = [
+          stylix.nixosModules.stylix
           # home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
           ./modules/configuration.nix
@@ -47,7 +50,7 @@
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          catppuccin.homeManagerModules.catppuccin
+          stylix.homeManagerModules.stylix
           ./home.nix
         ];
         extraSpecialArgs = {

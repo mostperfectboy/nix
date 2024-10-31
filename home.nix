@@ -12,12 +12,6 @@
     ./modules/dev.nix
   ];
 
-  catppuccin = {
-    enable = true;
-    accent = "maroon";
-    flavor = "frappe";
-  };
-
   services.gnome-keyring = {
     enable = true;
     components = [
