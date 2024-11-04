@@ -26,6 +26,7 @@
         "JetBrainsMono"
         "GeistMono"
         "NerdFontsSymbolsOnly"
+        "VictorMono"
       ];
     })
     manrope
@@ -39,4 +40,6 @@
   };
 
   services.gvfs.enable = true;
+
+  services.upower.enable = true;
 }
