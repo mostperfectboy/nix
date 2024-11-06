@@ -17,8 +17,8 @@
       };
 
       monospace = {
-        package = pkgs.geist-font;
-        name = "Geist Mono";
+        package = pkgs.nerdfonts.override { fonts = [ "GeistMono" ]; };
+        name = "Geist Mono NF";
       };
 
       emoji = {
