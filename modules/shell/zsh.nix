@@ -22,7 +22,7 @@
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      useTheme = "tokyonight_storm";
+      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./posh.json));
     };
 
     direnv = {
@@ -39,6 +39,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+
     };
 
     eza = {
