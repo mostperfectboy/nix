@@ -32,7 +32,9 @@
   services.gnome.gnome-keyring = {
     enable = true;
   };
-  programs.ssh.startAgent = true;
+  environment.variables = {
+    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/keyring/ssh";
+  };
 
   programs.nix-ld = {
     enable = true;
