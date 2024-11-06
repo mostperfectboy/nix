@@ -106,13 +106,6 @@
 					"foreground": "cyan"
 				},
 				{
-					"type": "nix-shell",
-					"style": "powerline",
-					"foreground": "blue",
-					"background": "transparent",
-					"template": "(nix-{{ .Type }})"
-				},
-				{
 					"type": "command",
 					"style": "plain",
 					"properties": {
