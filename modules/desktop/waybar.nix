@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 let
 
   mediaplayer-script = pkgs.writeTextFile {
@@ -34,8 +34,8 @@ in
           return-type = "json";
           max-length = 60;
           format-icons = {
-            "spotify"= "";
-            "default"= "🎜";
+            "spotify" = "";
+            "default" = "🎜";
           };
           escape = true;
           exec = "${mediaplayer-script} 2> /dev/null";

@@ -46,11 +46,11 @@
   services.kanshi = {
     enable = true;
     settings = [
-      { 
+      {
         output.criteria = "eDP-1";
         output.scale = 1.5;
       }
-      { 
+      {
         profile.name = "default";
         profile.outputs = [
           {
@@ -58,7 +58,7 @@
           }
         ];
       }
-      { 
+      {
         profile.name = "office";
         profile.outputs = [
           {

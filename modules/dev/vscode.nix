@@ -2,5 +2,8 @@
 {
   nixpkgs.overlays = [ (import ./vscode/fontOverlay.nix) ];
 
-  home.packages = with pkgs; [ vscode code-cursor ];
+  home.packages = with pkgs; [
+    vscode
+    code-cursor
+  ];
 }
