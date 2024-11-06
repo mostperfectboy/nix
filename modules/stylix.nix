@@ -2,7 +2,7 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     autoEnable = true;
     polarity = "dark";
     fonts = {
