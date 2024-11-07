@@ -13,6 +13,8 @@
     ./stylix.nix
   ];
 
+  stylix.targets.gtk.enable = false;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 

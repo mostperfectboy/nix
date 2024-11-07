@@ -41,6 +41,24 @@
     enable = true;
     image = ./mountain.jpg;
     autoEnable = true;
+    targets.gtk.enable = false;
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Colloid-Pink-Catppuccin";
+      package = pkgs.colloid-icon-theme.override {
+        schemeVariants = [ "catppuccin" ];
+        colorVariants = [ "pink" ];
+      };
+    };
+    theme = {
+      name = "Colloid-Dark-Catppuccin";
+      package = pkgs.colloid-gtk-theme.override {
+        tweaks = [ "catppuccin" ];
+      };
+    };
   };
 
   services.kanshi = {
