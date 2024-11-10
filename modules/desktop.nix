@@ -6,6 +6,8 @@
     ./desktop/waybar.nix
     ./stylix.nix
   ];
+  nixpkgs.overlays = [ (import ./desktop/theme/colloidOverlay.nix) ];
+
   home = {
     packages = with pkgs; [
       kanshi
