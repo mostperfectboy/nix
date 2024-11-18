@@ -6,6 +6,9 @@
       slack
       teams-for-linux
       chromium
+      devenv
+      corepack_latest
+      nodejs_latest
     ];
   };
   xdg.desktopEntries = {
