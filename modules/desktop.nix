@@ -55,7 +55,10 @@
     enable = true;
     image = ./mountain.jpg;
     autoEnable = true;
-    targets.gtk.enable = false;
+    targets = {
+      gtk.enable = false;
+      hyprlock.enable = false;
+    };
   };
 
   gtk = {
