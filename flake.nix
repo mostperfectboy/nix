@@ -14,6 +14,7 @@
     };
     stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    ags.url = "github:Aylur/ags";
   };
 
   outputs =

@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./desktop/hyprland.nix
     ./desktop/applications.nix
     ./desktop/waybar.nix
     ./stylix.nix
+    inputs.ags.homeManagerModules.default
   ];
   nixpkgs.overlays = [ (import ./desktop/theme/colloidOverlay.nix) ];
 
@@ -37,6 +38,17 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+  };
+
+  programs.ags = {
+    enable = true;
+    extraPackages = with inputs.ags.packages.${pkgs.system}; [
+      battery
+      hyprland
+      network
+      wireplumber
+      tray
+    ];
   };
 
   stylix = {
