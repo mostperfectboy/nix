@@ -1,12 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = (builtins.readFile ./hypr/hyprland.conf);
-    systemd = {
-      enable = true;
-    };
-    xwayland.enable = true;
   };
 
   home.sessionVariables = {
@@ -17,11 +13,6 @@
   programs.hyprlock = {
     enable = true;
     extraConfig = (builtins.readFile ./hypr/hyprlock.conf);
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   services = {
