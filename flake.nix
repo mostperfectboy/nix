@@ -7,11 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "https://github.com/hyprwm/Hyprland";
-      type = "git";
-      submodules = true;
-    };
     stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ags.url = "github:Aylur/ags";
