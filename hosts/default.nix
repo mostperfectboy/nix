@@ -51,6 +51,8 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  time.timeZone = "Europe/Berlin";
+
   security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gnome-keyring = {
     enable = true;
