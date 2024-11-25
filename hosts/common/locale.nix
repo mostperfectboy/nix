@@ -15,4 +15,9 @@
   };
 
   time.timeZone = "Europe/Berlin";
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 }
