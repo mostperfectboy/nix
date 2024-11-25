@@ -1,16 +1,5 @@
 { pkgs, ... }:
 {
-  programs = {
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-    file-roller.enable = true;
-    dconf.enable = true;
-  };
 
   programs.hyprland.enable = true;
 
@@ -31,8 +20,6 @@
     })
     manrope
   ];
-
-  services.gvfs.enable = true;
 
   services.upower.enable = true;
 }
