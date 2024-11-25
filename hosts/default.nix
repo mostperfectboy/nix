@@ -12,6 +12,8 @@
     ./common/docker.nix
     ./common/user.nix
     ./common/theme.nix
+    ./common/desktop/hyprland.nix
+    ./common/desktop/thunar.nix
   ];
 
   # Select internationalisation properties.
