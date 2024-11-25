@@ -9,3 +9,4 @@
 - add default workspace for FIRST instance of program
 - fix xcompose in electron/xwayland
 - style rofi
+- specialisations for light/dark mode
