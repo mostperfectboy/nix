@@ -10,13 +10,12 @@
     ./common/locale.nix
     ./common/nix.nix
     ./common/keyring.nix
+    ./common/docker.nix
   ];
 
   stylix.targets.gtk.enable = false;
 
   # Select internationalisation properties.
-
-  virtualisation.docker.enable = true;
 
   users.users.niko = {
     isNormalUser = true;
@@ -24,7 +23,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
       "video"
     ];
   };

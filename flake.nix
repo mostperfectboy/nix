@@ -28,7 +28,7 @@
       nixosConfigurations = {
         veldin = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs username;
           };
           modules = [
             stylix.nixosModules.stylix
