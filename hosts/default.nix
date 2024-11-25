@@ -9,7 +9,7 @@
     ../pkgs/stylix.nix
     ./common/locale.nix
     ./common/nix.nix
-    ./common/keyring.nix
+    ./common/security.nix
     ./common/docker.nix
     ./common/user.nix
   ];
