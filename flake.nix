@@ -25,29 +25,23 @@
       username = "niko";
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
+      nixosConfigurations = {
+        veldin = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            stylix.nixosModules.stylix
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
+            ./hosts/veldin
+          ];
         };
-        modules = [
-          stylix.nixosModules.stylix
-          # home-manager.nixosModules.home-manager
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
-          ./modules/configuration.nix
-          # {
-          #   home-manager.users.${username} = {
-          #     imports = [
-          #       # ./modules/home.nix
-          #     ];
-          #   };
-          # }
-        ];
       };
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           stylix.homeManagerModules.stylix
-          ./modules/home.nix
+          ./homes/niko/home.nix
         ];
         extraSpecialArgs = {
           inherit inputs system username;

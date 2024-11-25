@@ -4,7 +4,7 @@
     ./desktop/hyprland.nix
     ./desktop/applications.nix
     ./desktop/waybar.nix
-    ./stylix.nix
+    ../../pkgs/stylix.nix
     inputs.ags.homeManagerModules.default
   ];
   nixpkgs.overlays = [ (import ./desktop/theme/colloidOverlay.nix) ];
