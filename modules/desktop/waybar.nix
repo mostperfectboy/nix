@@ -18,8 +18,9 @@ in
         position = "top";
         height = 30;
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "custom/media" ];
+        modules-center = [ ];
         modules-right = [
+          "cpu"
           "temperature"
           "battery"
           "clock"
