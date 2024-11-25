@@ -9,22 +9,14 @@
     ../pkgs/stylix.nix
     ./common/locale.nix
     ./common/nix.nix
+    ./common/keyring.nix
   ];
 
   stylix.targets.gtk.enable = false;
 
   # Select internationalisation properties.
 
-  security.pam.services.login.enableGnomeKeyring = true;
-  services.gnome.gnome-keyring = {
-    enable = true;
-  };
-  environment.variables = {
-    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/keyring/ssh";
-  };
-
   virtualisation.docker.enable = true;
-  services.passSecretService.enable = true;
 
   users.users.niko = {
     isNormalUser = true;
