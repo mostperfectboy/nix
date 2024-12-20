@@ -8,15 +8,11 @@
     noto-fonts-cjk-sans
     noto-fonts-extra
     font-awesome
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-        "GeistMono"
-        "NerdFontsSymbolsOnly"
-        "VictorMono"
-      ];
-    })
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.geist-mono
+    nerd-fonts.symbols-only
+    nerd-fonts.victor-mono
     manrope
   ];
 
