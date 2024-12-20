@@ -22,4 +22,5 @@
     firefox-devedition
   ];
 
+  users.motd = "";
 }
