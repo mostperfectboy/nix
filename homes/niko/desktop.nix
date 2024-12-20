@@ -90,6 +90,7 @@
         profile.outputs = [
           {
             criteria = "eDP-1";
+            status = "enable";
           }
         ];
       }
@@ -98,6 +99,7 @@
         profile.outputs = [
           {
             criteria = "eDP-1";
+            status = "disable";
             mode = "1920x1200";
             scale = 1.5;
             position = "1920,1080";
