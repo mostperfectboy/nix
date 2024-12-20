@@ -53,7 +53,10 @@
 
   stylix = {
     enable = true;
-    image = ./mountain.jpg;
+    image = builtins.fetchurl {
+      url = "https://i.imgur.com/qHwLQaz.png";
+      sha256 = "02598d624621090070beaced6cc3bcb9809c137505d5e81141c749bddaa92981";
+    };
     autoEnable = true;
     targets = {
       gtk.enable = false;
