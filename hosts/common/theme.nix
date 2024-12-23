@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ../../pkgs/stylix.nix ];
+  imports = [ ../../pkgs/catppuccin.nix ];
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -8,6 +8,7 @@
     noto-fonts-cjk-sans
     noto-fonts-extra
     font-awesome
+    geist-font
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     nerd-fonts.geist-mono
@@ -15,7 +16,4 @@
     nerd-fonts.victor-mono
     manrope
   ];
-
-  stylix.targets.gtk.enable = false;
-
 }

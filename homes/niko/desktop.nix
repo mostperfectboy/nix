@@ -4,7 +4,7 @@
     ./desktop/hyprland.nix
     ./desktop/applications.nix
     ./desktop/waybar.nix
-    ../../pkgs/stylix.nix
+    ../../pkgs/catppuccin.nix
     inputs.ags.homeManagerModules.default
   ];
   nixpkgs.overlays = [ (import ./desktop/theme/colloidOverlay.nix) ];
@@ -24,13 +24,30 @@
       grim
       slurp
     ];
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 20;
+    };
+  };
+
+  fonts.fontconfig = {
+    defaultFonts = {
+      sansSerif = [ "Geist" ];
+      serif = [ "Geist" ];
+      monospace = [ "GeistMono NF" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+    enable = true;
   };
 
   programs.foot = {
     enable = true;
     settings = {
       main = {
-        pad = "16x16";
+        pad = "8x8";
+        font = "GeistMono NF:size=10";
       };
     };
   };
@@ -51,17 +68,9 @@
     ];
   };
 
-  stylix = {
-    enable = true;
-    image = builtins.fetchurl {
-      url = "https://i.imgur.com/qHwLQaz.png";
-      sha256 = "02598d624621090070beaced6cc3bcb9809c137505d5e81141c749bddaa92981";
-    };
-    autoEnable = true;
-    targets = {
-      gtk.enable = false;
-      hyprlock.enable = false;
-    };
+  catppuccin = {
+    cursors.enable = false;
+    gtk.enable = false;
   };
 
   gtk = {
@@ -74,9 +83,10 @@
       };
     };
     theme = {
-      name = "Colloid-Dark-Catppuccin";
+      name = "Colloid-Pink-Dark-Catppuccin";
       package = pkgs.colloid-gtk-theme.override {
         tweaks = [ "catppuccin" ];
+        themeVariants = [ "pink" ];
       };
     };
   };
