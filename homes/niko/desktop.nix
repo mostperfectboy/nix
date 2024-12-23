@@ -11,9 +11,6 @@
 
   home = {
     packages = with pkgs; [
-      kanshi
-      wl-clipboard
-      cliphist
       pavucontrol
       pamixer
       lxqt.lxqt-policykit
@@ -91,75 +88,81 @@
     };
   };
 
-  services.kanshi = {
-    enable = true;
-    settings = [
-      {
-        output.criteria = "eDP-1";
-        output.scale = 1.5;
-      }
-      {
-        profile.name = "default";
-        profile.outputs = [
-          {
-            criteria = "eDP-1";
-            status = "enable";
-          }
-        ];
-      }
-      {
-        profile.name = "office";
-        profile.outputs = [
-          {
-            criteria = "eDP-1";
-            status = "disable";
-            mode = "1920x1200";
-            scale = 1.5;
-            position = "1920,1080";
-          }
-          {
-            criteria = "Samsung Electric Company C27F390 H4LR903256";
-            mode = "1920x1080";
-            position = "0,0";
-          }
-          {
-            criteria = "Samsung Electric Company C27F390 H4ZT800578";
-            mode = "1920x1080";
-            position = "1920,0";
-          }
-        ];
-      }
-      {
-        profile.name = "home";
-        profile.outputs = [
-          {
-            criteria = "DP-8";
-            mode = "2560x1440";
-            position = "2360,480";
-            scale = 1.25;
-          }
-          {
-            criteria = "eDP-1";
-            mode = "1920x1200";
-            scale = 1.5;
-            position = "0,1280";
-          }
-          {
-            criteria = "DP-11";
-            mode = "1920x1080@60";
-            position = "1280,0";
-            transform = "90";
-          }
-        ];
-      }
-    ];
-  };
-  services.mako = {
-    enable = true;
-    borderRadius = 4;
-    extraConfig = ''
-      [mode=do-not-disturb]
-      invisible=1
-    '';
+  services = {
+    kanshi = {
+      enable = true;
+      systemdTarget = "hyprland-session.target";
+      settings = [
+        {
+          output.criteria = "eDP-1";
+          output.scale = 1.5;
+        }
+        {
+          profile.name = "default";
+          profile.outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+            }
+          ];
+        }
+        {
+          profile.name = "office";
+          profile.outputs = [
+            {
+              criteria = "eDP-1";
+              status = "disable";
+              mode = "1920x1200";
+              scale = 1.5;
+              position = "1920,1080";
+            }
+            {
+              criteria = "Samsung Electric Company C27F390 H4LR903256";
+              mode = "1920x1080";
+              position = "0,0";
+            }
+            {
+              criteria = "Samsung Electric Company C27F390 H4ZT800578";
+              mode = "1920x1080";
+              position = "1920,0";
+            }
+          ];
+        }
+        {
+          profile.name = "home";
+          profile.outputs = [
+            {
+              criteria = "DP-8";
+              mode = "2560x1440";
+              position = "2360,480";
+              scale = 1.25;
+            }
+            {
+              criteria = "eDP-1";
+              mode = "1920x1200";
+              scale = 1.5;
+              position = "0,1280";
+            }
+            {
+              criteria = "DP-11";
+              mode = "1920x1080@60";
+              position = "1280,0";
+              transform = "90";
+            }
+          ];
+        }
+      ];
+    };
+    mako = {
+      enable = true;
+      borderRadius = 4;
+      extraConfig = ''
+        [mode=do-not-disturb]
+        invisible=1
+      '';
+    };
+    cliphist = {
+      enable = true;
+    };
   };
 }
