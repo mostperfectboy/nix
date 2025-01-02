@@ -113,6 +113,7 @@
           "$mainMod, down, movefocus, d"
           "$mainMod, TAB, workspace, m+1"
           "alt, tab, workspace, m+1"
+          ",XF86AudioMute,exec,pamixer --toggle-mute"
           ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
           ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
           ",XF86AudioRaiseVolume,exec,pamixer -i 5"
