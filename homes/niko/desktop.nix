@@ -3,7 +3,7 @@
   imports = [
     ./desktop/hyprland.nix
     ./desktop/applications.nix
-    ./desktop/waybar.nix
+    # ./desktop/waybar.nix
     ../../pkgs/catppuccin.nix
     inputs.ags.homeManagerModules.default
   ];
@@ -18,8 +18,7 @@
       firefox
       seahorse
       dconf
-      grim
-      slurp
+      hyprshot
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -63,6 +62,7 @@
       wireplumber
       tray
     ];
+    systemd.enable = true;
   };
 
   catppuccin = {

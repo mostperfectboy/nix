@@ -106,7 +106,7 @@
           "$mainMod, P, pseudo"
           "$mainMod, J, togglesplit"
           "$mainMod, L, exec, hyprlock"
-          "$mainModShift, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+          "$mainModShift, S, exec, hyprshot -m region --clipboard-only"
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
           "$mainMod, up, movefocus, u"
