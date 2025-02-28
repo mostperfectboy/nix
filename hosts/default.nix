@@ -13,7 +13,7 @@
     ./common/user.nix
     ./common/theme.nix
     ./common/desktop/hyprland.nix
-    ./common/desktop/thunar.nix
+    ./common/desktop/filemanager.nix
   ];
 
   # Select internationalisation properties.
