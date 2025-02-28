@@ -48,7 +48,7 @@ self: super: {
   colloid-icon-theme = super.colloid-icon-theme.overrideAttrs (oldAttrs: {
     installPhase =
       ''
-        sed -i "s/#f4b8e4/#f0c6c6/g" lib_colors.sh
+        sed -i "s/#f4b8e4/#f0c6c6/g" install.sh
       ''
       + (oldAttrs.installPhase or "");
   });
