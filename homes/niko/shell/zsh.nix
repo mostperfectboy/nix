@@ -28,6 +28,9 @@
         "dcud" = "docker compose up -d";
         "dc" = "docker compose";
       };
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
     };
 
     oh-my-posh = {
