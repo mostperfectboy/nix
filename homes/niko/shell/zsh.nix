@@ -19,9 +19,21 @@
       };
     };
 
+    fish = {
+      enable = true;
+      shellAbbrs = {
+        la = "ls -hal";
+        ".." = "cd ..";
+        "..." = "cd ..";
+        "dcud" = "docker compose up -d";
+        "dc" = "docker compose";
+      };
+    };
+
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
       settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./posh.json));
     };
 
@@ -34,17 +46,19 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     fzf = {
       enable = true;
       enableZshIntegration = true;
-
+      enableFishIntegration = true;  # Adding Fish integration
     };
 
     eza = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
   };
   home.packages = with pkgs; [
