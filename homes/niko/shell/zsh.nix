@@ -29,7 +29,7 @@
         "dc" = "docker compose";
       };
       interactiveShellInit = ''
-        set fish_greeting # Disable greeting
+        set fish_greeting
       '';
     };
 
