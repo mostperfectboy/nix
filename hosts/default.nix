@@ -1,11 +1,8 @@
 {
-  pkgs,
   ...
 }:
 {
-
   imports = [
-    # Include the results of the hardware scan.
     ./common/locale.nix
     ./common/nix.nix
     ./common/security.nix
@@ -15,8 +12,6 @@
     ./common/desktop/hyprland.nix
     ./common/desktop/filemanager.nix
   ];
-
-  # Select internationalisation properties.
 
   users.motd = "";
 }
