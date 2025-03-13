@@ -18,9 +18,5 @@
 
   # Select internationalisation properties.
 
-  environment.systemPackages = with pkgs; [
-    firefox-devedition
-  ];
-
   users.motd = "";
 }
