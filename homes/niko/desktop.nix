@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, system, ... }:
 {
   imports = [
     ./desktop/hyprland.nix
@@ -19,6 +19,7 @@
       seahorse
       dconf
       hyprshot
+      inputs.zen-browser.packages."${system}".default 
     ];
     pointerCursor = {
       gtk.enable = true;
