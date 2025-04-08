@@ -27,6 +27,26 @@
       name = "Bibata-Modern-Ice";
       size = 20;
     };
+    file = {
+      ".zen/7wwpradk.default/chrome/userChrome.css" = {
+        source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/zen-browser/b048e8bd54f784d004812036fb83e725a7454ab4/themes/Macchiato/Rosewater/userChrome.css";
+          sha256 = "sha256-nLCa0VvsOnlb82cZyVIWapIiGNPETUprdnaIhhU45PU=";
+        };
+      };
+      ".zen/7wwpradk.default/chrome/userContent.css" = {
+        source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/zen-browser/b048e8bd54f784d004812036fb83e725a7454ab4/themes/Macchiato/Rosewater/userContent.css";
+          sha256 = "sha256-I26WMP1a0oskSJgwh5WGz4BqBv2yJm1beLXiFCGXWLY=";
+        };
+      };
+      ".zen/7wwpradk.default/chrome/zen-logo-macchiato.svg" = {
+        source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/zen-browser/b048e8bd54f784d004812036fb83e725a7454ab4/themes/Macchiato/Rosewater/zen-logo-macchiato.svg";
+          sha256 = "sha256-r+XfE2KK9CgosgI31GusRGCkSZ8pupuHYcVUl6X01Mk=";
+        };
+      };
+    };
   };
 
   fonts.fontconfig = {
