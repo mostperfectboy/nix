@@ -8,7 +8,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 1;
-  boot.kernelPackages = pkgs.linuxPackages_6_11;
 
   networking.hostName = "veldin"; # Define your hostname.
   networking.networkmanager.enable = true;
