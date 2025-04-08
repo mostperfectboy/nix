@@ -152,7 +152,6 @@
 
   programs.hyprlock = {
     enable = true;
-    extraConfig = (builtins.readFile ./hypr/hyprlock.conf);
   };
 
   services = {
