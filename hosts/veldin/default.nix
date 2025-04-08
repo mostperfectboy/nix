@@ -88,6 +88,15 @@
     3000
     3030
   ];
+
+  services.printing.enable = true;
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # networking.interfaces.eth0.wakeOnLan.enable = true;
   # networking.firewall.allowedUDPPorts = [  3030 ];
   # Or disable the firewall altogether.
