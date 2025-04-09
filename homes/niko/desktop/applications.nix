@@ -8,8 +8,8 @@
       obs-studio-plugins.input-overlay
     ];
   };
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     spotify
     nautilus
-   ];
+  ];
 }

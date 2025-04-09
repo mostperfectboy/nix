@@ -27,6 +27,7 @@
       username = "niko";
     in
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations = {
         veldin = nixpkgs.lib.nixosSystem {
           specialArgs = {

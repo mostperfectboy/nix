@@ -55,7 +55,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      enableFishIntegration = true;  # Adding Fish integration
+      enableFishIntegration = true; # Adding Fish integration
     };
 
     eza = {

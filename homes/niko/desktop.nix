@@ -1,4 +1,9 @@
-{ pkgs, inputs, system, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 {
   imports = [
     ./desktop/hyprland.nix
@@ -7,7 +12,9 @@
     ../../pkgs/catppuccin.nix
     inputs.ags.homeManagerModules.default
   ];
-  nixpkgs.overlays = [ (import ./desktop/theme/colloidOverlay.nix) ];
+  nixpkgs.overlays = [
+    (import ./desktop/theme/colloidOverlay.nix)
+  ];
 
   home = {
     packages = with pkgs; [
@@ -19,7 +26,7 @@
       seahorse
       dconf
       hyprshot
-      inputs.zen-browser.packages."${system}".default 
+      inputs.zen-browser.packages."${system}".default
     ];
     pointerCursor = {
       gtk.enable = true;
