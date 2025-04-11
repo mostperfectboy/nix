@@ -43,7 +43,7 @@
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeModules.catppuccin
           ./homes/niko/home.nix
         ];
         extraSpecialArgs = {
