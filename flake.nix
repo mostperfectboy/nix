@@ -29,14 +29,14 @@
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations = {
-        veldin = nixpkgs.lib.nixosSystem {
+        gom = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs username;
           };
           modules = [
             catppuccin.nixosModules.catppuccin
             nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
-            ./hosts/veldin
+            ./hosts/gom
           ];
         };
       };

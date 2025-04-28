@@ -9,7 +9,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 1;
 
-  networking.hostName = "veldin"; # Define your hostname.
+  networking.hostName = "gom"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
