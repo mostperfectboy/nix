@@ -39,6 +39,13 @@
             ./hosts/gom
           ];
         };
+        boldan = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs username; };
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            ./hosts/boldan
+          ];
+        };
       };
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};

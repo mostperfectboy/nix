@@ -157,7 +157,7 @@
           ];
         }
         {
-          profile.name = "home";
+          profile.name = "docked";
           profile.outputs = [
             {
               criteria = "DP-8";
@@ -178,6 +178,30 @@
               transform = "90";
             }
           ];
+        }
+        {
+          profile = {
+            name = "home";
+            outputs = [
+              {
+                criteria = "DP-1";
+                mode = "2560x1440";
+                position = "1080,480";
+                scale = 1.25;
+              }
+              {
+                criteria = "HDMI-A-1";
+                mode = "1920x1080";
+                position = "3124,800";
+              }
+              {
+                criteria = "DP-2";
+                mode = "1920x1080@60";
+                position = "0,0";
+                transform = "90";
+              }
+            ];
+          };
         }
       ];
     };
