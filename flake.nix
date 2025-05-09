@@ -46,6 +46,13 @@
             ./hosts/boldan
           ];
         };
+        barlow = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs username; };
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            ./hosts/barlow
+          ];
+        };
       };
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
