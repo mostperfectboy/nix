@@ -207,11 +207,11 @@
     };
     mako = {
       enable = true;
-      borderRadius = 4;
-      extraConfig = ''
-        [mode=do-not-disturb]
-        invisible=1
-      '';
+      criteria = {
+        "mode=do-not-disturb" = {
+          invisible = true;
+        };
+      };
     };
     cliphist = {
       enable = true;
