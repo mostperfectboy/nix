@@ -147,7 +147,7 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
-    FLAKE = /home/niko/nix;
+    NH_FLAKE = /home/niko/nix;
   };
 
   programs.hyprlock = {
