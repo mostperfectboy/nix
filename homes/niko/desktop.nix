@@ -66,14 +66,9 @@
     enable = true;
   };
 
-  programs.foot = {
+  programs.ghostty = {
     enable = true;
-    settings = {
-      main = {
-        pad = "8x8";
-        font = "GeistMono NF:size=10";
-      };
-    };
+    enableFishIntegration = true;
   };
 
   programs.rofi = {

@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       monitor = ",preferred,auto,auto";
-      "$terminal" = "foot";
+      "$terminal" = "ghostty";
       "$fileManager" = "thunar";
       "$menu" = "rofi";
       "$mainMod" = "SUPER";
