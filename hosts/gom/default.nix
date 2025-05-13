@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./generated-configuration.nix
+    ./hardware-configuration.nix
     ./..
   ];
 
@@ -102,4 +102,6 @@
   networking.firewall.enable = false;
   services.openssh.enable = true;
   hardware.graphics.enable = true;
+
+  system.stateVersion = "23.11";
 }
