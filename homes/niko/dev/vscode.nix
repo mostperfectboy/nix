@@ -4,11 +4,13 @@
   home.packages = with pkgs; [
     vscode
   ];
-  home.file.".vscode/argv.json" = {
-    text = builtins.toJSON {
-      enable-crash-reporter = false;
-      password-store = "gnome";
-    };
+  home.file.".config/code-flags.conf" = {
+    text = ''
+      --gtk-version=4
+      --enable-features=TouchpadOverscrollHistoryNavigation
+      --enable-wayland-ime
+      --password-store=gnome-libsecret
+    '';
     force = true;
   };
 }
