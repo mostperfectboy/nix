@@ -43,9 +43,5 @@
       enable = true;
       clean.enable = true;
     };
-    zellij = {
-      enable = true;
-      enableFishIntegration = true;
-    };
   };
 }
