@@ -10,7 +10,6 @@
     ./desktop/applications.nix
     # ./desktop/waybar.nix
     ../../pkgs/catppuccin.nix
-    inputs.ags.homeManagerModules.default
   ];
   nixpkgs.overlays = [
     (import ./desktop/theme/colloidOverlay.nix)
@@ -76,15 +75,8 @@
     package = pkgs.rofi-wayland;
   };
 
-  programs.ags = {
+  programs.waybar = {
     enable = true;
-    extraPackages = with inputs.ags.packages.${pkgs.system}; [
-      battery
-      hyprland
-      network
-      wireplumber
-      tray
-    ];
     systemd.enable = true;
   };
 
