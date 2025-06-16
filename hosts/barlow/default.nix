@@ -22,6 +22,10 @@
 
   services.openssh.enable = true;
 
+  networking.firewall.allowedTCPPorts = [
+    3000
+  ];
+
   environment.systemPackages = with pkgs; [ brightnessctl ];
 
   system.stateVersion = "24.11";
