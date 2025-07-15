@@ -13,7 +13,14 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "synaptics_usb" ];
+  boot.kernelModules = [
+    "synaptics_usb"
+    "rtl8812au"
+  ];
+  boot.blacklistedKernelModules = [ "mt7925e" ];
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
+
   boot.initrd.luks.devices."luks-4107fcda-ec65-4fbf-8488-1535b6d3adc2".device =
     "/dev/disk/by-uuid/4107fcda-ec65-4fbf-8488-1535b6d3adc2";
 
@@ -22,6 +29,10 @@
 
   services.openssh.enable = true;
 
+  networking.wireless.iwd = {
+    enable = true;
+  };
+  networking.networkmanager.wifi.backend = "iwd";
   networking.firewall.allowedTCPPorts = [
     3000
   ];
