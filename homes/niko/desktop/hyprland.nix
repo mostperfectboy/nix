@@ -94,45 +94,44 @@
         "float,class:^(Rofi)$"
         "suppressevent maximize, class:.*"
       ];
-      bind =
-        [
-          "$mainMod, R, exec, $terminal"
-          "$mainMod, Q, killactive"
-          "$mainMod, M, exit"
-          "$mainMod, E, exec, $fileManager"
-          "$mainMod, V, exec, cliphist list | $menu -dmenu | cliphist decode | wl-copy"
-          "$mainMod, F, togglefloating"
-          "$mainMod, space, exec, $menu -show drun"
-          "$mainMod, P, pseudo"
-          "$mainMod, J, togglesplit"
-          "$mainMod, L, exec, hyprlock"
-          "$mainModShift, S, exec, hyprshot -m region --clipboard-only"
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
-          "$mainMod, TAB, workspace, m+1"
-          "alt, tab, workspace, m+1"
-          ",XF86AudioMute,exec,pamixer --toggle-mute"
-          ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
-          ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
-          ",XF86AudioRaiseVolume,exec,pamixer -i 5"
-          ",XF86AudioLowerVolume,exec,pamixer -d 5"
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
-        ]
-        ++ (builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              ws = i + 1;
-            in
-            [
-              "$mainMod, code:1${toString i}, workspace, ${toString ws}"
-              "$mainMod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ]
-          ) 9
-        ));
+      bind = [
+        "$mainMod, R, exec, $terminal"
+        "$mainMod, Q, killactive"
+        "$mainMod, M, exit"
+        "$mainMod, E, exec, $fileManager"
+        "$mainMod, V, exec, cliphist list | $menu -dmenu | cliphist decode | wl-copy"
+        "$mainMod, F, togglefloating"
+        "$mainMod, space, exec, $menu -show drun"
+        "$mainMod, P, pseudo"
+        "$mainMod, J, togglesplit"
+        "$mainMod, L, exec, hyprlock"
+        "$mainModShift, S, exec, hyprshot -m region --clipboard-only"
+        "$mainMod, left, movefocus, l"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
+        "$mainMod, TAB, workspace, m+1"
+        "alt, tab, workspace, m+1"
+        ",XF86AudioMute,exec,pamixer --toggle-mute"
+        ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+        ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
+        ",XF86AudioRaiseVolume,exec,pamixer -i 5"
+        ",XF86AudioLowerVolume,exec,pamixer -d 5"
+        "$mainMod, mouse_down, workspace, e+1"
+        "$mainMod, mouse_up, workspace, e-1"
+      ]
+      ++ (builtins.concatLists (
+        builtins.genList (
+          i:
+          let
+            ws = i + 1;
+          in
+          [
+            "$mainMod, code:1${toString i}, workspace, ${toString ws}"
+            "$mainMod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          ]
+        ) 9
+      ));
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
@@ -159,22 +158,22 @@
       enable = true;
       settings = {
         general = {
-          lock_cmd = "hyprlock";
+          lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "loginctl lock-session";
         };
         listener = [
           {
-            timeout = 180;
+            timeout = 360;
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on";
           }
           {
-            timeout = 360;
+            timeout = 420;
             on-timeout = "loginctl lock-session";
           }
           {
             timeout = 1200;
-            on-timeout = "loginctl lock-session";
+            on-timeout = "systemctl suspend";
           }
         ];
       };
