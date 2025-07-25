@@ -9,6 +9,7 @@
       devenv
       corepack_latest
       nodejs_latest
+      claude-code
     ];
   };
   xdg.desktopEntries = {
