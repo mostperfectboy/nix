@@ -16,7 +16,6 @@
         "..." = "cd ..";
         "dcud" = "docker compose up -d";
         "dc" = "docker compose";
-        "claude" = "pnpx @anthropic-ai/claude-code";
       };
     };
 
@@ -28,7 +27,6 @@
         "..." = "cd ..";
         "dcud" = "docker compose up -d";
         "dc" = "docker compose";
-        "claude" = "pnpx @anthropic-ai/claude-code";
       };
       interactiveShellInit = ''
         set fish_greeting
