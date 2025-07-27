@@ -173,7 +173,7 @@
           }
           {
             timeout = 1200;
-            on-timeout = "systemctl suspend";
+            on-timeout = "[ $(cat /sys/class/power_supply/AC/online) -eq 0 ] && systemctl suspend";
           }
         ];
       };
