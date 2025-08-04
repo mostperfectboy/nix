@@ -8,7 +8,7 @@
   };
   security.pam.services.login.enableGnomeKeyring = true;
   environment.variables = {
-    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/keyring/ssh";
+    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/gcr/ssh";
   };
   security.polkit.enable = true;
 }
