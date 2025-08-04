@@ -82,7 +82,7 @@
 
   catppuccin = {
     cursors.enable = false;
-    gtk.enable = false;
+    gtk.icon.enable = false;
   };
 
   gtk = {
