@@ -33,11 +33,12 @@
       '';
     };
 
-    oh-my-posh = {
+    starship = {
       enable = true;
-      enableZshIntegration = true;
       enableFishIntegration = true;
-      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./posh.json));
+      enableZshIntegration = true;
+      enableTransience = true;
+      enableInteractive = true;
     };
 
     direnv = {
