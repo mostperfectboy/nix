@@ -81,7 +81,28 @@
       * {
         font-family: Symbols Nerd Font, GeistMono NF;
       }
+
+      label {
+        margin: 0 8px;
+      }
+
     '';
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        modules-left = [
+          "hyprland/workspaces"
+          "hyprland/mode"
+        ];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [
+          "temperature"
+          "battery"
+          "clock"
+        ];
+      };
+    };
     systemd.enable = true;
   };
 
