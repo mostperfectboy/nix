@@ -15,11 +15,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = [
     "synaptics_usb"
-    "rtl8812au"
   ];
-  boot.blacklistedKernelModules = [ "mt7925e" ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
 
   boot.initrd.luks.devices."luks-4107fcda-ec65-4fbf-8488-1535b6d3adc2".device =
     "/dev/disk/by-uuid/4107fcda-ec65-4fbf-8488-1535b6d3adc2";
