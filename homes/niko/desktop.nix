@@ -77,6 +77,11 @@
 
   programs.waybar = {
     enable = true;
+    style = ''
+      * {
+        font-family: Symbols Nerd Font, GeistMono NF;
+      }
+    '';
     systemd.enable = true;
   };
 
