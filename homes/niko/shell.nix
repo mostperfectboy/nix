@@ -6,6 +6,7 @@
     wget
     nixd
     nixfmt-rfc-style
+    du-dust
   ];
 
   programs = {
@@ -43,5 +44,8 @@
       enable = true;
       clean.enable = true;
     };
+    ripgrep.enable = true;
+    fd.enable = true;
+    bat.enable = true;
   };
 }
