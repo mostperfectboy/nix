@@ -11,9 +11,6 @@
     # ./desktop/waybar.nix
     ../../pkgs/catppuccin.nix
   ];
-  nixpkgs.overlays = [
-    (import ./desktop/theme/colloidOverlay.nix)
-  ];
 
   home = {
     packages = with pkgs; [
