@@ -120,10 +120,11 @@
       };
     };
     theme = {
-      name = "Colloid-Pink-Dark-Catppuccin";
-      package = pkgs.colloid-gtk-theme.override {
-        tweaks = [ "catppuccin" ];
-        themeVariants = [ "pink" ];
+      name = "Catppuccin-GTK-Pink-Dark-Macchiato";
+      package = pkgs.magnetic-catppuccin-gtk.override {
+        shade = "dark";
+        accent = [ "pink" ];
+        tweaks = [ "macchiato" ];
       };
     };
   };
