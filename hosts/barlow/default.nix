@@ -22,6 +22,10 @@
   boot.initrd.luks.devices."luks-4107fcda-ec65-4fbf-8488-1535b6d3adc2".device =
     "/dev/disk/by-uuid/4107fcda-ec65-4fbf-8488-1535b6d3adc2";
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   networking.hostName = "barlow"; # Define your hostname.
   networking.networkmanager.enable = true;
 
