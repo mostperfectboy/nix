@@ -148,6 +148,18 @@
 
   programs.hyprlock = {
     enable = true;
+    settings = {
+      general = {
+        no_fade_in = false;
+      };
+      background = [
+        {
+          path = "screenshot";
+          blur_passes = 3;
+          blur_size = 8;
+        }
+      ];
+    };
   };
 
   services = {
