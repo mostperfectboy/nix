@@ -93,10 +93,16 @@
         ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
+          "network"
           "temperature"
           "battery"
           "clock"
         ];
+        network = {
+          format-wifi = "{essid} ({signalStrength}%) ";
+          interval = 5;
+          tooltip = true;
+        };
       };
     };
     systemd.enable = true;
