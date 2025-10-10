@@ -27,6 +27,12 @@
         "..." = "cd ..";
         "dcud" = "docker compose up -d";
         "dc" = "docker compose";
+        "oc" = "opencode";
+      };
+      shellAliases = {
+        "claude" = "pnpx @anthropic-ai/claude-code@latest";
+        "opencode" = "pnpx opencode-ai@latest";
+        "codex" = "pnpx @openai/codex";
       };
       interactiveShellInit = ''
         set fish_greeting
