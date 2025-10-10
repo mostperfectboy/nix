@@ -15,7 +15,7 @@
   home = {
     packages = with pkgs; [
       pavucontrol
-      pamixer
+      inputs.stable.legacyPackages.${system}.pamixer
       lxqt.lxqt-policykit
       xdg-utils
       firefox
