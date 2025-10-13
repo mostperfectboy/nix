@@ -5,6 +5,11 @@
       automatic = true;
       dates = [ "13:00" ];
     };
+    gc = {
+      automatic = true;
+      dates = [ "03:00" ];
+      options = "--delete-older-than 14d";
+    };
 
     settings = {
       experimental-features = "nix-command flakes";
