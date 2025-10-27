@@ -64,7 +64,7 @@ in
     defaultFonts = {
       sansSerif = [ "Geist" ];
       serif = [ "Geist" ];
-      monospace = [ "GeistMono NF" ];
+      monospace = [ "VictorMono NF SemiBold" ];
       emoji = [ "Noto Color Emoji" ];
     };
     enable = true;
@@ -83,7 +83,8 @@ in
     enable = true;
     style = ''
       * {
-        font-family: Symbols Nerd Font, GeistMono NF;
+        font-family: Symbols Nerd Font, monospace;
+        font-weight: 700;
       }
 
 
@@ -103,6 +104,36 @@ in
 
       window#waybar {
         background: transparent;
+      }
+
+      #network,
+      #temperature,
+      #battery,
+      #clock,
+      #workspaces {
+        background: @base;
+        border-radius: 12px;
+        padding: 4px 12px;
+        margin: 6px 6px;
+        color: @text;
+      }
+
+      #workspaces button {
+        color: @overlay0;
+        border-radius: 8px;
+        background: transparent;
+        padding: 0 4px;
+        margin: 0 2px;
+      }
+
+      #workspaces button.active {
+        color: @text;
+        background: @surface0;
+      }
+
+      #workspaces button:hover {
+        background: @surface1;
+        color: @text;
       }
     '';
     settings = {
