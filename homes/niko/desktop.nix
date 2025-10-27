@@ -4,6 +4,13 @@
   system,
   ...
 }:
+let
+  sptlrx-script = pkgs.writeTextFile {
+    name = "sptlrx.sh";
+    text = builtins.readFile ./desktop/waybar/sptlrx.sh;
+    executable = true;
+  };
+in
 {
   imports = [
     ./desktop/hyprland.nix
@@ -23,6 +30,8 @@
       dconf
       hyprshot
       inputs.zen-browser.packages."${system}".default
+      playerctl
+      sptlrx
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -82,6 +91,20 @@
         margin: 0 8px;
       }
 
+      #custom-lyrics {
+        padding: 0 10px;
+        color: #89b4fa;
+        font-weight: bold;
+      }
+
+      #custom-lyrics.lyrics-playing {
+        color: #a6e3a1;
+      }
+
+      #custom-lyrics.lyrics-paused {
+        color: #f9e2af;
+      }
+
     '';
     settings = {
       mainBar = {
@@ -91,7 +114,7 @@
           "hyprland/workspaces"
           "hyprland/mode"
         ];
-        modules-center = [ "hyprland/window" ];
+        modules-center = [ "custom/lyrics" ];
         modules-right = [
           "network"
           "temperature"
@@ -99,9 +122,16 @@
           "clock"
         ];
         network = {
-          format-wifi = "{essid} ({signalStrength}%) ";
+          format-wifi = "{essid} ({signalStrength}%) ";
           interval = 5;
           tooltip = true;
+        };
+        "custom/lyrics" = {
+          format = "{}";
+          return-type = "json";
+          max-length = 80;
+          escape = true;
+          exec = "${sptlrx-script} 2> /dev/null";
         };
       };
     };
@@ -225,6 +255,9 @@
       enable = true;
       settings = {
         "mode=do-not-disturb" = {
+          invisible = true;
+        };
+        "app-name=Spotify" = {
           invisible = true;
         };
       };
