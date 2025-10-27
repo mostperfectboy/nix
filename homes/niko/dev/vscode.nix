@@ -3,6 +3,7 @@
   nixpkgs.overlays = [ (import ./vscode/fontOverlay.nix) ];
   home.packages = with pkgs; [
     vscode
+    zed-editor
   ];
   home.file.".config/code-flags.conf" = {
     text = ''
