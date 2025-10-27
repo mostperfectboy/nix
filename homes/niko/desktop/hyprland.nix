@@ -134,7 +134,6 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       layerrule = [
-        "blur, waybar"
         "blur, rofi"
       ];
     };

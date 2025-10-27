@@ -86,9 +86,6 @@ in
         font-family: Symbols Nerd Font, GeistMono NF;
       }
 
-      label {
-        margin: 0 8px;
-      }
 
       #custom-lyrics {
         padding: 0 10px;
@@ -104,6 +101,9 @@ in
         color: #f9e2af;
       }
 
+      window#waybar {
+        background: transparent;
+      }
     '';
     settings = {
       mainBar = {
@@ -121,7 +121,7 @@ in
           "clock"
         ];
         network = {
-          format-wifi = "{essid} ({signalStrength}%) ";
+          format-wifi = "{essid}@{signalStrength}%";
           interval = 5;
           tooltip = true;
         };
