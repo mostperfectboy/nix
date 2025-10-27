@@ -15,7 +15,6 @@ in
   imports = [
     ./desktop/hyprland.nix
     ./desktop/applications.nix
-    # ./desktop/waybar.nix
     ../../pkgs/catppuccin.nix
   ];
 
