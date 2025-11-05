@@ -221,12 +221,12 @@ in
               position = "1920,1080";
             }
             {
-              criteria = "Samsung Electric Company C27F390 H4LR903256";
+              criteria = "Samsung Electric Company C27F390 H4ZT800705";
               mode = "1920x1080";
               position = "0,0";
             }
             {
-              criteria = "Samsung Electric Company C27F390 H4ZT800578";
+              criteria = "Samsung Electric Company C27F390 H4ZT800351";
               mode = "1920x1080";
               position = "1920,0";
             }
