@@ -4,9 +4,9 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans
-    noto-fonts-extra
+    noto-fonts
     font-awesome
     geist-font
     nerd-fonts.fira-code
