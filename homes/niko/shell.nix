@@ -6,7 +6,7 @@
     wget
     nixd
     nixfmt-rfc-style
-    du-dust
+    dust
   ];
 
   programs = {
