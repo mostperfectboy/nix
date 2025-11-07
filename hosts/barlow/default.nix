@@ -17,7 +17,7 @@
     "synaptics_usb"
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
 
   boot.initrd.luks.devices."luks-4107fcda-ec65-4fbf-8488-1535b6d3adc2".device =
     "/dev/disk/by-uuid/4107fcda-ec65-4fbf-8488-1535b6d3adc2";
