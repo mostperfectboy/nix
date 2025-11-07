@@ -23,6 +23,7 @@ in
       pavucontrol
       inputs.stable.legacyPackages.${system}.pamixer
       lxqt.lxqt-policykit
+      wl-clipboard
       xdg-utils
       firefox
       seahorse
