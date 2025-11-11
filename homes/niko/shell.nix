@@ -12,9 +12,11 @@
   programs = {
     git = {
       enable = true;
-      userName = "Niko";
-      userEmail = "git@undefine.dev";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Niko";
+          email = "git@undefine.dev";
+        };
         column.ui = "auto";
         branch.sort = "-committerdate";
         tag.sort = "version:refname";
