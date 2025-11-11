@@ -37,6 +37,7 @@
         pull.rebase = true;
       };
     };
+    mergiraf.enable = true;
     gitui = {
       enable = true;
     };
