@@ -12,11 +12,15 @@
   programs = {
     git = {
       enable = true;
+      ignores = [
+        ".opencode"
+      ];
       settings = {
         user = {
           name = "Niko";
           email = "git@undefine.dev";
         };
+        core.excludesFile = "~/.config/git/ignore";
         column.ui = "auto";
         branch.sort = "-committerdate";
         tag.sort = "version:refname";
