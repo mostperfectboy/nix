@@ -96,10 +96,7 @@
     openFirewall = true;
   };
 
-  # networking.interfaces.eth0.wakeOnLan.enable = true;
-  # networking.firewall.allowedUDPPorts = [  3030 ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   services.openssh.enable = true;
   hardware.graphics.enable = true;
 
