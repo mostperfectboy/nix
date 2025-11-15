@@ -21,7 +21,7 @@ in
   home = {
     packages = with pkgs; [
       pavucontrol
-      inputs.stable.legacyPackages.${system}.pamixer
+      pamixer
       lxqt.lxqt-policykit
       wl-clipboard
       xdg-utils
