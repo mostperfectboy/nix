@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ../../pkgs/catppuccin.nix ];
+  imports = [ ../../../pkgs/catppuccin.nix ];
 
   fonts.packages = with pkgs; [
     noto-fonts

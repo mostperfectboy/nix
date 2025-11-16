@@ -2,7 +2,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./..
+    ../common/global
+    ../common/optional/hyprland.nix
+    ../common/optional/filemanager.nix
+    ../common/optional/docker.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

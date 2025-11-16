@@ -6,12 +6,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    ./shell.nix
-    ./desktop.nix
-    ./dev.nix
-  ];
-
   services.gnome-keyring = {
     enable = true;
     components = [
@@ -22,7 +16,7 @@
 
   home.file = {
     ".docker/config.json".text = ''{"credsStore": "secretservice"}'';
-    ".XCompose".source = ./.XCompose;
+    ".XCompose".source = ../.XCompose;
   };
 
   programs.home-manager.enable = true;

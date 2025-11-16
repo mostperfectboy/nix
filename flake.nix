@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Niko's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -24,44 +24,39 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      username = "niko";
+      lib = import ./lib {
+        inherit
+          nixpkgs
+          home-manager
+          catppuccin
+          nixos-hardware
+          inputs
+          ;
+      };
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+
       nixosConfigurations = {
-        gom = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs username;
-          };
-          modules = [
-            catppuccin.nixosModules.catppuccin
-            nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
-            ./hosts/gom
-          ];
+        gom = lib.mkSystem "gom" {
+          hardwareModule = nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4;
         };
-        boldan = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs username; };
-          modules = [
-            catppuccin.nixosModules.catppuccin
-            ./hosts/boldan
-          ];
-        };
-        barlow = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs username; };
-          modules = [
-            catppuccin.nixosModules.catppuccin
-            ./hosts/barlow
-          ];
-        };
+        boldan = lib.mkSystem "boldan" { };
+        barlow = lib.mkSystem "barlow" { };
       };
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
-          catppuccin.homeModules.catppuccin
-          ./homes/niko/home.nix
-        ];
-        extraSpecialArgs = {
-          inherit inputs system username;
+
+      homeConfigurations = {
+        "niko@gom" = lib.mkHome {
+          hostname = "gom";
+          username = "niko";
+        };
+        "niko@boldan" = lib.mkHome {
+          hostname = "boldan";
+          username = "niko";
+        };
+        "niko@barlow" = lib.mkHome {
+          hostname = "barlow";
+          username = "niko";
         };
       };
     };

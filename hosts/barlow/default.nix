@@ -3,7 +3,10 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../.
+    ../common/global
+    ../common/optional/hyprland.nix
+    ../common/optional/filemanager.nix
+    ../common/optional/docker.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
     inputs.nixos-hardware.nixosModules.common-gpu-amd

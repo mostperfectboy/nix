@@ -1,3 +1,4 @@
+# Desktop environment (Hyprland, Waybar, etc)
 {
   pkgs,
   inputs,
@@ -15,7 +16,7 @@ in
   imports = [
     ./desktop/hyprland.nix
     ./desktop/applications.nix
-    ../../pkgs/catppuccin.nix
+    ../../../pkgs/catppuccin.nix
   ];
 
   home = {
