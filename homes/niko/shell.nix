@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./shell/zsh.nix ];
+  imports = [ ./shell/fish.nix ];
 
   home.packages = with pkgs; [
     wget

@@ -10,9 +10,6 @@
     ];
     shell = pkgs.fish;
   };
-  programs.zsh = {
-    enable = true;
-  };
   programs.fish = {
     enable = true;
   };
