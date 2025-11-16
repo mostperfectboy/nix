@@ -7,6 +7,7 @@
     nixd
     nixfmt-rfc-style
     dust
+    comma
   ];
 
   programs = {
