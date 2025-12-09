@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [ ./shell/fish.nix ];
 
@@ -8,6 +8,7 @@
     nixfmt-rfc-style
     dust
     comma
+    inputs.opencode.packages.${pkgs.system}.default
   ];
 
   programs = {

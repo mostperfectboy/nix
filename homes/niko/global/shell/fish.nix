@@ -13,7 +13,7 @@
       };
       shellAliases = {
         "claude" = "pnpx @anthropic-ai/claude-code@latest";
-        "opencode" = "pnpx opencode-ai@latest";
+        "popencode" = "pnpx opencode-ai@latest";
         "codex" = "pnpx @openai/codex";
       };
       interactiveShellInit = ''
