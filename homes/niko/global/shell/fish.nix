@@ -18,6 +18,9 @@
       };
       interactiveShellInit = ''
         set fish_greeting
+        if set -q SSH_CONNECTION
+          eval (keychain --eval ssh id_ed25519)
+        end
       '';
     };
 

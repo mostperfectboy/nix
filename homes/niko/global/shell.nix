@@ -12,6 +12,10 @@
   ];
 
   programs = {
+    keychain = {
+      enable = true;
+      enableFishIntegration = false;
+    };
     git = {
       enable = true;
       ignores = [
