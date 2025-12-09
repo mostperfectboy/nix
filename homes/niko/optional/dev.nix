@@ -7,7 +7,7 @@
       teams-for-linux
       chromium
       devenv
-      corepack_latest
+      corepack_24
       nodejs_latest
     ];
   };
