@@ -41,6 +41,9 @@
           pruneTags = true;
           all = true;
         };
+        rebase = {
+          updateRefs = true;
+        };
         help.autocorrect = true;
         pull.rebase = true;
       };
