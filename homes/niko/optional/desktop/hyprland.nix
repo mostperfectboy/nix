@@ -2,6 +2,8 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
+    portalPackage = null;
     settings = {
       monitor = ",preferred,auto,auto";
       "$terminal" = "ghostty";

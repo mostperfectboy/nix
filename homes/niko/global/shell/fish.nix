@@ -17,6 +17,7 @@
         "codex" = "pnpx @openai/codex";
       };
       interactiveShellInit = ''
+        set -e LD_LIBRARY_PATH
         set fish_greeting
         if set -q SSH_CONNECTION
           eval (keychain --eval ssh id_ed25519)
