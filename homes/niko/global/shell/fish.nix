@@ -20,7 +20,7 @@
         set -e LD_LIBRARY_PATH
         set fish_greeting
         if set -q SSH_CONNECTION
-          eval (keychain --eval ssh id_ed25519)
+          eval (keychain --eval id_ed25519)
         end
       '';
     };
