@@ -135,9 +135,6 @@
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
-      layerrule = [
-        "blur, rofi"
-      ];
     };
   };
   imports = [ ./hypr/hyprpaper.nix ];
