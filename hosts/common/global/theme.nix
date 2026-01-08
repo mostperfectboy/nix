@@ -14,6 +14,5 @@
     nerd-fonts.geist-mono
     nerd-fonts.symbols-only
     nerd-fonts.victor-mono
-    manrope
   ];
 }
