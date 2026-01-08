@@ -20,7 +20,7 @@
     "synaptics_usb"
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices."luks-4107fcda-ec65-4fbf-8488-1535b6d3adc2".device =
     "/dev/disk/by-uuid/4107fcda-ec65-4fbf-8488-1535b6d3adc2";
@@ -40,6 +40,7 @@
   networking.networkmanager.wifi.backend = "iwd";
   networking.firewall.allowedTCPPorts = [
     3000
+    44015
   ];
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
