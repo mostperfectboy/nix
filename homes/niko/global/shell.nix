@@ -9,6 +9,7 @@
     dust
     comma
     inputs.opencode.packages.${pkgs.system}.default
+    ast-grep
   ];
 
   programs = {
