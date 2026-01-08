@@ -12,9 +12,10 @@ in
       preload = [
         wallpaper
       ];
-      wallpaper = [
-        ",${wallpaper}"
-      ];
+      wallpaper = {
+        path = wallpaper;
+        monitor = "";
+      };
     };
   };
 }
