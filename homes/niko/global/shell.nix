@@ -64,5 +64,6 @@
     ripgrep.enable = true;
     fd.enable = true;
     bat.enable = true;
+    zellij.enable = true;
   };
 }
