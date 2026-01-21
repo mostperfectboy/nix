@@ -64,6 +64,9 @@
     ripgrep.enable = true;
     fd.enable = true;
     bat.enable = true;
-    zellij.enable = true;
+    opencode = {
+      enable = true;
+      package = inputs.opencode.packages.${pkgs.system}.default;
+    };
   };
 }
