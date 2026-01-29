@@ -10,6 +10,7 @@
     comma
     inputs.opencode.packages.${pkgs.system}.default
     ast-grep
+    inputs.opencode.packages.${pkgs.system}.default
   ];
 
   programs = {
@@ -64,9 +65,5 @@
     ripgrep.enable = true;
     fd.enable = true;
     bat.enable = true;
-    opencode = {
-      enable = true;
-      package = inputs.opencode.packages.${pkgs.system}.default;
-    };
   };
 }
