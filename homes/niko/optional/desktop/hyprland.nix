@@ -89,9 +89,9 @@
         vfr = true;
         focus_on_activate = true;
       };
-      windowrulev2 = [
-        "float,class:^(Rofi)$"
-        "suppressevent maximize, class:.*"
+      windowrule = [
+        "match:class ^(Rofi)$, float on"
+        "match:class .*, suppress_event maximize"
       ];
       bind = [
         "$mainMod, R, exec, $terminal"
