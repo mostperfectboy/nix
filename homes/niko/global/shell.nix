@@ -8,9 +8,9 @@
     nixfmt-rfc-style
     dust
     comma
-    inputs.opencode.packages.${pkgs.system}.default
+    inputs.llm-agents.packages.${pkgs.system}.opencode
     ast-grep
-    inputs.opencode.packages.${pkgs.system}.default
+    inputs.llm-agents.packages.${pkgs.system}.agent-browser
   ];
 
   programs = {
@@ -22,6 +22,7 @@
       enable = true;
       ignores = [
         ".opencode"
+        "AGENTS.md"
       ];
       settings = {
         user = {
