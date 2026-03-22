@@ -23,6 +23,8 @@
       ignores = [
         ".opencode"
         "AGENTS.md"
+        ".agents"
+        "skills-lock.json"
       ];
       settings = {
         user = {
