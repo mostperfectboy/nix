@@ -8,9 +8,9 @@
     nixfmt-rfc-style
     dust
     comma
-    inputs.llm-agents.packages.${pkgs.system}.opencode
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
     ast-grep
-    inputs.llm-agents.packages.${pkgs.system}.agent-browser
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
   ];
 
   programs = {

@@ -42,7 +42,6 @@ let
       ];
       extraSpecialArgs = {
         inherit inputs hostname username;
-        system = "x86_64-linux";
       };
     };
 in
