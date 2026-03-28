@@ -12,6 +12,7 @@
     ast-grep
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
     (pkgs.callPackage ./shell/next-browser.nix { })
+    zellij
   ];
 
   programs = {
