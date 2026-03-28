@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     wget
     nixd
-    nixfmt-rfc-style
+    nixfmt
     dust
     comma
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode

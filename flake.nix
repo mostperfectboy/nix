@@ -39,7 +39,7 @@
       };
     in
     {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
 
       nixosConfigurations = {
         gom = lib.mkSystem "gom" {
