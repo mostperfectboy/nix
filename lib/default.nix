@@ -18,14 +18,14 @@ let
       specialArgs = {
         inherit inputs hostname;
         username = "niko";
-      } // specialArgs;
-      modules =
-        [
-          catppuccin.nixosModules.catppuccin
-          ../hosts/common/global/default.nix
-          ../hosts/${hostname}/default.nix
-        ]
-        ++ (if hardwareModule != null then [ hardwareModule ] else [ ]);
+      }
+      // specialArgs;
+      modules = [
+        catppuccin.nixosModules.catppuccin
+        ../hosts/common/global/default.nix
+        ../hosts/${hostname}/default.nix
+      ]
+      ++ (if hardwareModule != null then [ hardwareModule ] else [ ]);
     };
 
   mkHome =
