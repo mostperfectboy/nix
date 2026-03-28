@@ -2,7 +2,7 @@
 {
   pkgs,
   inputs,
-  system,
+  config,
   ...
 }:
 let
@@ -184,6 +184,7 @@ in
         colorVariants = [ "pink" ];
       };
     };
+    gtk4.theme = config.gtk.theme;
     theme = {
       name = "Catppuccin-GTK-Pink-Dark-Macchiato";
       package = pkgs.magnetic-catppuccin-gtk.override {
