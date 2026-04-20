@@ -9,12 +9,6 @@
         "..." = "cd ..";
         "dcud" = "docker compose up -d";
         "dc" = "docker compose";
-        "oc" = "opencode";
-      };
-      shellAliases = {
-        "claude" = "pnpx @anthropic-ai/claude-code@latest";
-        "popencode" = "pnpx opencode-ai@latest";
-        "codex" = "pnpx @openai/codex";
       };
       interactiveShellInit = ''
         set -e LD_LIBRARY_PATH

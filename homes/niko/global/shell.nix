@@ -1,6 +1,9 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ ./shell/fish.nix ];
+  imports = [
+    ./shell/fish.nix
+    ./ai.nix
+  ];
 
   home.packages = with pkgs; [
     wget
@@ -8,10 +11,6 @@
     nixfmt
     dust
     comma
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
-    ast-grep
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
-    (pkgs.callPackage ./shell/next-browser.nix { })
     zellij
   ];
 
@@ -22,12 +21,6 @@
     };
     git = {
       enable = true;
-      ignores = [
-        ".opencode"
-        "AGENTS.md"
-        ".agents"
-        "skills-lock.json"
-      ];
       settings = {
         user = {
           name = "Niko";
