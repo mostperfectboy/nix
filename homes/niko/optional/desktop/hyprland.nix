@@ -4,11 +4,19 @@
     enable = true;
     package = null;
     portalPackage = null;
+    extraConfig = ''
+      layerrule {
+        name = noctalia
+        match:namespace = noctalia-background-.*$
+        ignore_alpha = 0.5
+        blur = true
+        blur_popups = true
+      }
+    '';
     settings = {
       monitor = ",preferred,auto,auto";
       "$terminal" = "ghostty";
       "$fileManager" = "thunar";
-      "$menu" = "rofi";
       "$mainMod" = "SUPER";
       input = {
         kb_layout = "us";
@@ -24,13 +32,12 @@
         gaps_in = 3;
         gaps_out = 6;
         border_size = 2;
-        "col.active_border" = "rgba(f0c6c6ff)";
-        "col.inactive_border" = "rgba(cad3f5ff)";
         layout = "dwindle";
         allow_tearing = false;
       };
       decoration = {
-        rounding = 6;
+        rounding = 12;
+        rounding_power = 2;
         active_opacity = 0.95;
         inactive_opacity = 0.85;
         shadow = {
@@ -43,6 +50,7 @@
           enabled = true;
           size = 3;
           passes = 2;
+          vibrancy = 0.1696;
           new_optimizations = true;
           contrast = 0.2;
         };
@@ -89,21 +97,19 @@
         vfr = true;
         focus_on_activate = true;
       };
-      windowrule = [
-        "match:class ^(Rofi)$, float on"
-        "match:class .*, suppress_event maximize"
-      ];
+      exec-once = [ "noctalia-shell" ];
+      windowrule = [ "match:class .*, suppress_event maximize" ];
       bind = [
         "$mainMod, R, exec, $terminal"
         "$mainMod, Q, killactive"
         "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, V, exec, cliphist list | $menu -dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, noctalia-shell ipc call launcher clipboard"
         "$mainMod, F, togglefloating"
-        "$mainMod, space, exec, $menu -show drun"
+        "$mainMod, space, exec, noctalia-shell ipc call launcher toggle"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
-        "$mainMod, L, exec, hyprlock"
+        "$mainMod, L, exec, noctalia-shell ipc call lockScreen lock"
         "$mainModShift, S, exec, hyprshot -m region --clipboard-only"
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -137,58 +143,9 @@
       ];
     };
   };
-  imports = [ ./hypr/hyprpaper.nix ];
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     NH_FLAKE = /home/niko/nix;
-  };
-
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      general = {
-        no_fade_in = false;
-      };
-      background = [
-        {
-          path = "screenshot";
-          blur_passes = 3;
-          blur_size = 8;
-        }
-      ];
-    };
-  };
-
-  services = {
-    hypridle = {
-      enable = true;
-      settings = {
-        general = {
-          lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "loginctl lock-session";
-        };
-        listener = [
-          {
-            timeout = 120;
-            on-timeout = "brightnessctl -s set 25%";
-            on-resume = "brightnessctl -r";
-          }
-          {
-            timeout = 300;
-            on-timeout = "loginctl lock-session";
-          }
-          {
-            timeout = 360;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
-          }
-          {
-            timeout = 1200;
-            on-timeout = "[ $(cat /sys/class/power_supply/AC/online) -eq 0 ] && systemctl suspend";
-          }
-        ];
-      };
-    };
   };
 }
