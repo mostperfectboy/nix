@@ -9,6 +9,7 @@
   imports = [
     inputs.noctalia.homeModules.default
     ./desktop/hyprland.nix
+    ./desktop/niri.nix
     ./desktop/applications.nix
   ];
 
@@ -256,7 +257,7 @@
   services = {
     kanshi = {
       enable = true;
-      systemdTarget = "hyprland-session.target";
+      systemdTarget = "graphical-session.target";
       settings = [
         {
           output.criteria = "eDP-1";
@@ -284,12 +285,12 @@
             {
               criteria = "Samsung Electric Company C27F390 H4ZT800705";
               mode = "1920x1080";
-              position = "0,0";
+              position = "1920,0";
             }
             {
               criteria = "Samsung Electric Company C27F390 H4ZT800351";
               mode = "1920x1080";
-              position = "1920,0";
+              position = "0,0";
             }
           ];
         }
