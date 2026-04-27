@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    mcp-nixos
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
     ast-grep
