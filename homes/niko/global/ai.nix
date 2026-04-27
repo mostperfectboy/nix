@@ -1,12 +1,17 @@
 { pkgs, inputs, ... }:
 {
-  home.packages = with pkgs; [
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
-    ast-grep
-    python3
-    gh
-  ];
+  home = {
+    packages = with pkgs; [
+      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
+      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
+      ast-grep
+      python3
+      gh
+    ];
+    sessionVariables = {
+      OPENCODE_ENABLE_EXA = "1";
+    };
+  };
 
   programs = {
     git.ignores = [
