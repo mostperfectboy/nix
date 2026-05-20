@@ -4,6 +4,8 @@
     packages = with pkgs; [
       inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
       inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.agent-browser
+      inputs.llm-tools.packages.${pkgs.stdenv.hostPlatform.system}.next-browser
+      inputs.llm-tools.packages.${pkgs.stdenv.hostPlatform.system}.plannotator
       ast-grep
       python3
       gh
