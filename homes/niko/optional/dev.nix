@@ -9,13 +9,7 @@
       devenv
       corepack_24
       nodejs_latest
-      playwright-driver.browsers
     ];
-
-    sessionVariables = {
-      PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
-      PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
-    };
   };
   xdg.desktopEntries = {
     linear = {
