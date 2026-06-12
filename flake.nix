@@ -25,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-tools.url = "github:mostperfectboy/llm-tools.nix";
+    mcp-nixos.url = "github:utensils/mcp-nixos";
   };
 
   outputs =
@@ -33,6 +34,7 @@
       nixos-hardware,
       nixpkgs,
       catppuccin,
+      mcp-nixos,
       ...
     }@inputs:
     let
@@ -49,6 +51,12 @@
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
+
+      devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
+        buildInputs = [
+          mcp-nixos.packages.${system}.mcp-nixos
+        ];
+      };
 
       nixosConfigurations = {
         gom = lib.mkSystem "gom" {
