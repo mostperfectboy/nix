@@ -14,6 +14,7 @@
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
+      trusted-users = [ "niko" ];
       substituters = [
         "https://nix-community.cachix.org"
         "https://devenv.cachix.org"
