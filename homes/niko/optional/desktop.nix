@@ -52,204 +52,149 @@
     enableFishIntegration = true;
   };
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
     package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    systemd.enable = true;
+
     settings = {
-      appLauncher = {
-        clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
-        clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
-        density = "compact";
-        enableClipboardHistory = true;
-        terminalCommand = "ghostty -e";
+      shell = {
+        font_family = "VictorMono NF";
+        avatar_path = "${config.home.homeDirectory}/.face";
+        corner_radius_scale = 0.8;
+        password_style = "random";
+        niri_overview_type_to_launch_enabled = true;
+
+        panel = {
+          transparency_mode = "soft";
+          control_center_placement = "floating";
+        };
+
+        screen_corners.enabled = true;
       };
 
-      bar = {
-        density = "comfortable";
-        widgets = {
-          center = [
-            {
-              id = "Clock";
-              formatHorizontal = "HH:mm";
-              formatVertical = "HH mm - dd MM";
-              tooltipFormat = "HH:mm ddd, MMM dd";
-            }
-          ];
-          left = [
-            {
-              id = "Workspace";
-              characterCount = 2;
-              labelMode = "index";
-              showLabelsOnlyWhenOccupied = true;
-            }
-            {
-              id = "ActiveWindow";
-              hideMode = "hidden";
-              maxWidth = 240;
-              scrollingMode = "hover";
-              showIcon = true;
-              showText = true;
-              useFixedWidth = true;
-            }
-            {
-              id = "MediaMini";
-              hideMode = "hidden";
-              hideWhenIdle = false;
-              maxWidth = 145;
-              panelShowAlbumArt = true;
-              scrollingMode = "hover";
-              showAlbumArt = true;
-              showArtistFirst = true;
-              showProgressRing = true;
-              showVisualizer = false;
-              useFixedWidth = false;
-              visualizerType = "linear";
-            }
-          ];
-          right = [
-            {
-              id = "Tray";
-              drawerEnabled = true;
-            }
-            {
-              id = "SystemMonitor";
-              compactMode = true;
-              diskPath = "/";
-              showCpuTemp = true;
-              showCpuUsage = true;
-              showMemoryUsage = true;
-              useMonospaceFont = true;
-              usePadding = false;
-            }
-            {
-              id = "NotificationHistory";
-              showUnreadBadge = true;
-            }
-            {
-              id = "Battery";
-              displayMode = "icon-always";
-              hideIfIdle = true;
-              hideIfNotDetected = true;
-            }
-            {
-              id = "Volume";
-              displayMode = "alwaysHide";
-              middleClickCommand = "pwvucontrol || pavucontrol";
-            }
-            {
-              id = "ControlCenter";
-              icon = "noctalia";
-              useDistroLogo = true;
-            }
-          ];
+      wallpaper = {
+        directory = "~/Pictures/gowall";
+        transition = [
+          "fade"
+          "wipe"
+        ];
+      };
+
+      theme = {
+        builtin = "Kanagawa";
+
+        templates.builtin_ids = [
+          "ghostty"
+          "hyprland"
+          "zed"
+          "pywalfox"
+          "zenBrowser"
+          "code"
+        ];
+      };
+
+      backdrop = {
+        enabled = true;
+        blur_intensity = 0.09;
+      };
+
+      lockscreen = {
+        blurred_desktop = true;
+        blur_intensity = 0.28;
+        tint_intensity = 0.15;
+      };
+
+      osd.position = "bottom_center";
+
+      idle = {
+        behavior.lock = {
+          command = "brightnessctl -s set 25%";
+          resume_command = "brightnessctl -r";
+          enabled = true;
+        };
+
+        behavior.screen-off = {
+          command = "[ \"$(cat /sys/class/power_supply/AC/online 2>/dev/null)\" = \"0\" ] && systemctl suspend";
+          resume_command = "";
+          enabled = true;
         };
       };
 
-      controlCenter = {
-        cards = [
-          {
-            enabled = true;
-            id = "profile-card";
-          }
-          {
-            enabled = true;
-            id = "shortcuts-card";
-          }
-          {
-            enabled = true;
-            id = "audio-card";
-          }
-          {
-            enabled = false;
-            id = "brightness-card";
-          }
-          {
-            enabled = true;
-            id = "weather-card";
-          }
-          {
-            enabled = true;
-            id = "media-sysmon-card";
-          }
+      bar.main = {
+        scale = 1.15;
+        start = [
+          "workspaces"
+          "active-window"
+          "media"
+        ];
+        end = [
+          "control-center"
+          "tray"
+          "sysmon"
+          "notifications"
+          "battery"
+          "volume"
         ];
       };
 
       dock = {
-        backgroundOpacity = 0.66;
-        groupApps = true;
-        showLauncherIcon = true;
-      };
-
-      general = {
-        avatarImage = "${config.home.homeDirectory}/.face";
-        forceBlackScreenCorners = true;
-        lockScreenBlur = 0.16;
-        lockScreenTint = 0.15;
-        passwordChars = true;
-        showScreenCorners = true;
-      };
-
-      idle = {
         enabled = true;
-        customCommands = [
-          {
-            name = "Dim";
-            timeout = 180;
-            command = "brightnessctl -s set 25%";
-            resumeCommand = "brightnessctl -r";
-          }
-          {
-            name = "Suspend";
-            timeout = 1000;
-            command = "[ \"$(cat /sys/class/power_supply/AC/online 2>/dev/null)\" = \"0\" ] && noctalia-shell ipc call sessionMenu lockAndSuspend";
-            resumeCommand = "";
-          }
+        background_opacity = 0.66;
+        launcher_position = "start";
+        auto_hide = true;
+      };
+
+      desktop_widgets.enabled = true;
+
+      control_center = {
+        sidebar = "compact";
+        sidebar_section = "compact";
+
+        shortcuts = [
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "nightlight"; }
+          { type = "nightlight_disabled"; }
+          { type = "keyboard"; }
+          { type = "battery"; }
+          { type = "battery_time"; }
+          { type = "screenRecorder"; }
+          { type = "screenRecorderTimer"; }
+          { type = "volume"; }
+          { type = "brightness"; }
+          { type = "media"; }
         ];
       };
 
-      location = {
-        autoLocate = false;
-        name = "Bochum";
-      };
+      weather.enabled = true;
 
-      osd = {
-        location = "bottom";
+      widget.clock.format = "{:%H:%M}";
+      widget.workspaces = {
+        display = "numeric";
+        max_label_chars = 2;
+        labels_only_when_occupied = true;
       };
-
-      templates = {
-        activeTemplates = [
-          {
-            enabled = true;
-            id = "ghostty";
-          }
-          {
-            enabled = true;
-            id = "hyprland";
-          }
-          {
-            enabled = true;
-            id = "zed";
-          }
-          {
-            enabled = true;
-            id = "pywalfox";
-          }
-          {
-            enabled = true;
-            id = "zenBrowser";
-          }
-          {
-            enabled = true;
-            id = "code";
-          }
+      widget.active_window = {
+        max_length = 240;
+        icon_size = 20;
+        title_scroll = "hover";
+      };
+      widget.media = {
+        max_length = 145;
+        art_size = 28;
+        hide_when_no_media = false;
+      };
+      widget.sysmon = {
+        stat = [
+          "cpu"
+          "memory"
         ];
-        enableUserTheming = true;
+        display = "compact";
       };
-
-      ui = {
-        fontDefault = "VictorMono NF";
-        fontFixed = "monospace";
-        settingsPanelMode = "window";
+      widget.control-center = {
+        custom_image = "noctalia";
+        custom_image_colorize = true;
       };
     };
   };
@@ -314,6 +259,21 @@
               mode = "1920x1080@60";
               position = "1280,0";
               transform = "90";
+            }
+          ];
+        }
+        {
+          profile.name = "eizo-above";
+          profile.outputs = [
+            {
+              criteria = "Eizo Nanao Corporation EV2451 72202039";
+              mode = "1920x1080";
+              position = "0,0";
+            }
+            {
+              criteria = "eDP-1";
+              scale = 1.5;
+              position = "0,1080";
             }
           ];
         }

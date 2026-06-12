@@ -1,8 +1,16 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [ inputs.niri.homeModules.config ];
 
-  home.packages = [ config.programs.niri.package ];
+  home.packages = [
+    config.programs.niri.package
+    pkgs.xwayland-satellite
+  ];
 
   programs.niri.settings = {
     input = {
@@ -45,13 +53,14 @@
       };
     };
 
-    prefer-no-csd = true;
-
-    spawn-at-startup = [
+    layer-rules = [
       {
-        command = [ "noctalia-shell" ];
+        matches = [{ namespace = "^noctalia-overview*"; }];
+        place-within-backdrop = true;
       }
     ];
+
+    prefer-no-csd = true;
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
@@ -83,9 +92,24 @@
 
       "Mod+R".action.spawn = [ "ghostty" ];
       "Mod+E".action.spawn = [ "thunar" ];
-      "Mod+Space".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
-      "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
-      "Mod+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+      "Mod+Space".action.spawn = [
+        "noctalia"
+        "msg"
+        "panel-toggle"
+        "launcher"
+      ];
+      "Mod+V".action.spawn = [
+        "noctalia"
+        "msg"
+        "panel-toggle"
+        "clipboard"
+      ];
+      "Mod+L".action.spawn = [
+        "noctalia"
+        "msg"
+        "session"
+        "lock"
+      ];
 
       "Mod+Q" = {
         repeat = false;
@@ -135,26 +159,50 @@
 
       "XF86AudioMute" = {
         allow-when-locked = true;
-        action.spawn = [ "pamixer" "--toggle-mute" ];
+        action.spawn = [
+          "pamixer"
+          "--toggle-mute"
+        ];
       };
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;
-        action.spawn = [ "pamixer" "-i" "5" ];
+        action.spawn = [
+          "pamixer"
+          "-i"
+          "5"
+        ];
       };
       "XF86AudioLowerVolume" = {
         allow-when-locked = true;
-        action.spawn = [ "pamixer" "-d" "5" ];
+        action.spawn = [
+          "pamixer"
+          "-d"
+          "5"
+        ];
       };
       "XF86MonBrightnessUp" = {
         allow-when-locked = true;
-        action.spawn = [ "brightnessctl" "set" "+5%" ];
+        action.spawn = [
+          "brightnessctl"
+          "set"
+          "+5%"
+        ];
       };
       "XF86MonBrightnessDown" = {
         allow-when-locked = true;
-        action.spawn = [ "brightnessctl" "set" "5%-" ];
+        action.spawn = [
+          "brightnessctl"
+          "set"
+          "5%-"
+        ];
       };
 
-      "Mod+Shift+S".action.spawn = [ "hyprshot" "-m" "region" "--clipboard-only" ];
+      "Mod+Shift+S".action.spawn = [
+        "hyprshot"
+        "-m"
+        "region"
+        "--clipboard-only"
+      ];
       "Ctrl+Print".action.screenshot-screen = [ ];
       "Alt+Print".action.screenshot-window = [ ];
 

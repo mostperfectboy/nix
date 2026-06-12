@@ -97,19 +97,18 @@
         vfr = true;
         focus_on_activate = true;
       };
-      exec-once = [ "noctalia-shell" ];
       windowrule = [ "match:class .*, suppress_event maximize" ];
       bind = [
         "$mainMod, R, exec, $terminal"
         "$mainMod, Q, killactive"
         "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, V, exec, noctalia-shell ipc call launcher clipboard"
+        "$mainMod, V, exec, noctalia msg panel-toggle clipboard"
         "$mainMod, F, togglefloating"
-        "$mainMod, space, exec, noctalia-shell ipc call launcher toggle"
+        "$mainMod, space, exec, noctalia msg panel-toggle launcher"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
-        "$mainMod, L, exec, noctalia-shell ipc call lockScreen lock"
+        "$mainMod, L, exec, noctalia msg session lock"
         "$mainModShift, S, exec, hyprshot -m region --clipboard-only"
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
